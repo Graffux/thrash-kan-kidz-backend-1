@@ -1313,8 +1313,8 @@ async def get_user_cards(user_id: str):
             result.append({
                 "user_card_id": uc["id"],
                 "card": Card(**card),
-                "quantity": uc["quantity"],
-                "acquired_at": uc["acquired_at"]
+                "quantity": uc.get("quantity", 1)
+                "acquired_at": uc.get("acquired_at", "")
             })
     
     return result
